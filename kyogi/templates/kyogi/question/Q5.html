@@ -1,0 +1,97 @@
+{% extends "kyogi/base3.html" %}
+{% block content %}
+
+<div class = "mondai">
+    <h1 class="daimon">数学 和の計算</h1>
+    <p class = "timer" id="timer"></p>
+    <br>5桁の正の整数の各桁の数字の和を計算し、その和がちょうど10に
+    <br>なる数はいくつあるか。たとえば、13222や80002が該当する数である。
+   <br>出力:10になる数はいくつあるか、数字のみをreturnせよ
+   <br>
+   <a href="Q5" class="btn reset-btn">リセット</a>
+   <a href="sentaku" class="btn">問題一覧へ</a>
+
+    <py-repl>
+def digits_sum():
+    # ここにコードを記述し右下の実行を押してください
+    return None
+    </py-repl>
+        <p>第一の門</p>
+    <py-repl>
+if digits_sum() == digits_sum_ans:
+    print('clear!!')
+else:
+    print('答えが違います')
+    </py-repl>
+    <py-terminal auto="" class=""></py-terminal>
+
+
+    <form name = "clear" method="post" target="iframe" action="check">
+        {% csrf_token %}
+        <input type="submit" id="btn" name="syukei" class="btn" py-Click="check()" value="提出">
+        <input type="hidden" name="name" value={{ UserID }}>
+        <input type="hidden" name="number" value="5">{% comment %} 問題番号 {% endcomment %}
+        <textarea id="clear" name="clear" style="display:none"></textarea>
+        <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
+
+    </form>
+    <label id="check_answer" class="clear"></label>
+
+    <iframe id="iframe" name="iframe" style="display: none;"></iframe>
+
+    
+</div>
+
+<py-script>
+import datetime
+import asyncio
+
+clear = 0
+digits_sum_ans = 714
+
+def check():
+    if digits_sum() == digits_sum_ans:
+        Element("check_answer").write("All clear!!  次の問題に進みましょう")
+        global clear
+        clear = 1
+    else:
+        Element("check_answer").write("エラーが発生します。やり直してください")
+    
+dt_was = datetime.datetime.now()
+        
+def elapsed_time_str(seconds):
+            
+    seconds = int(seconds + 0.5)    # 秒数を四捨五入
+    h = seconds // 3600             # 時の取得
+    m = (seconds - h * 3600) // 60  # 分の取得
+    s = seconds - h * 3600 - m * 60 # 秒の取得
+        
+    return f"{h:02}:{m:02}:{s:02}"  # hh:mm:ss形式の文字列で返す
+        
+async def main():
+    while True:
+        dt_now = datetime.datetime.now()
+        time = dt_now - dt_was
+        time1 = time.seconds
+        time = elapsed_time_str(time.seconds)
+        Element("timer").write("経過時間:"+time)
+        Element("clear_time").write(value = time1)
+        check_clear()
+        await asyncio.sleep(1)
+        if clear == 1:
+            break
+
+
+def check_clear():
+    try:
+        assert digits_sum() == digits_sum_ans 
+        clear = 1
+        Element("clear").write(value = clear)
+    except:
+        clear = 0
+        Element("clear").write(value = clear)
+    
+pyscript.run_until_complete(main())  
+
+</py-script>
+{% endblock %}

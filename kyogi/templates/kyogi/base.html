@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python競技</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav class = "header">
+            <div class="header-top header-color navbar">
+                <a href="/" class="title">Python競技プログラミング</a>
+                <nav>
+                    <ul class="header-right">
+                        <li>
+                            <a href="/">ホーム</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Login' %}">ログイン</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'register' %}">新規登録</a>
+                        </li>
+                        <li>
+                            <a href="https://forms.gle/2gtnEZj7u9X9X7VD7">お問い合わせ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class = "main">
+            <div class="message">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="footer-font">2022 OECU</p>
+    </footer>
+</body>
+</html>

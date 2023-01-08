@@ -1,0 +1,1 @@
+web: gunicorn pythonkyogi.wsgi --log-file -

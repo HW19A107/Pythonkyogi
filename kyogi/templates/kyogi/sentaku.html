@@ -1,0 +1,23 @@
+{% extends "kyogi/base2.html" %}
+{% block content %}
+
+<div class = "mondai">
+    あなたは<font color="red">{{ myranking }}</font>です。
+    <div class = "kekka">
+        <p>競技終了後は<a href = "last" class = "btn">こちら</a>を押してください</p>
+    </div>
+    <div class="userin">
+    <a href="Q1" class="btn mondai-btn">問題1 数学 倍数問題 <font color="red" class = clear-display>{{ clear1 }}</font></a>
+    <br>
+    <a href="Q2" class="btn mondai-btn">問題2 数学 桁数問題 <font color="red" class = clear-display>{{ clear2 }}</font></a>
+    <br>
+    <a href="Q3" class="btn mondai-btn">問題3 数学 桁数問題 <font color="red" class = clear-display>{{ clear3 }}</font></a>
+    <br>
+    <a href="Q4" class="btn mondai-btn">問題4 数学 連続する数字 <font color="red" class = clear-display>{{ clear4 }}</font></a>
+    <br>
+    <a href="Q5" class="btn mondai-btn">問題5 数学 和の計算 <font color="red" class = clear-display>{{ clear5 }}</font></a>
+    <br>
+</div>
+<div class="last">以上</div>
+
+{% endblock %}

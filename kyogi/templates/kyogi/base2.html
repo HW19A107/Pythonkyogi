@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python競技</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav class = "header">
+            <div class="header-top header-color navbar">
+                <a href="home" class="title">Python競技プログラミング</a>
+                <nav>
+                    <ul class="header-right">
+                        <li>
+                            <font color="red">{{ UserID }}</font>さん
+                        </li>
+                        <li>
+                            <a href="home">ホーム</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Logout' %}">ログアウト</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class = "main">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class = "mondai">
+            <iframe src = "./graph" class ="graph_size"></iframe>
+        </div>
+    </main>
+    <footer>
+        <p class="footer-font">2022 OECU</p>
+    </footer>
+</body>
+</html>

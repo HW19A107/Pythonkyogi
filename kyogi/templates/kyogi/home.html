@@ -1,0 +1,19 @@
+{% extends "kyogi/base2.html" %}
+{% block content %}
+<div class="message">
+    <h1>Python競技プログラミングサイト</h1>
+        <p class="message-1">
+        ようこそ！
+        <br><font color="red">{{ UserID }}</font>さん
+        <br>下記のボタンから
+        <br>Python競技プログラミングを始めましょう。
+    </p>
+        <div class="userin">
+        <a href="sentaku" class="btn">スタート</a>
+        </div>
+        <br>
+        <p> ログアウトは
+            <a href="{% url 'Logout' %}">こちら</a>
+</div>
+
+{% endblock %}

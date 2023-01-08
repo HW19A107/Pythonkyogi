@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+html{
+    font-size:100%; 
+}
+*{
+    box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 5rem;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: rgba(101, 205, 195, 0.459);
+}
+
+.title{
+    font-size: 1.5rem;
+}
+a{
+    text-decoration:none;
+    color: black;
+}
+.header-top{
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 0.5%;
+    display: flex;
+    align-items:center;
+    height: 8%;
+    z-index: 10000;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    margin-left:0.8rem;
+}
+
+nav{
+    margin-left:auto;
+}
+
+a:hover{
+    opacity: 0.5;
+}
+
+.header-color{
+    background-color: rgb(255, 255, 255);
+}
+
+.message{
+    font-size: 20px;
+    display: block;
+    background-color: white;
+    text-align:center;
+    margin: 100px;
+    padding: 100px;
+}
+h1{
+    font-size: 40px;
+}
+
+.message-1{
+    padding-top: 20px;
+}
+
+.userin{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.btn{
+    background-color: rgba(101, 205, 195, 0.63);
+    color: white;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border: rgba(101, 205, 195, 0.63);
+}
+.btn:hover{
+    opacity: 0.5;
+}
+.reset-btn{
+    text-align: right;
+}
+form{
+    font-size: 18px;
+}
+
+.koumoku{
+    padding-right: 10px;
+}
+
+.mondai{
+    font-size: 20px;
+    display: block;
+    background-color: white;
+    text-align:left;
+    margin: 100px;
+    padding: 10px;
+}
+.mondai-btn{
+    padding: 1px 10px;
+    font-size: 30px;
+    display: flex;
+}
+
+.graph{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    
+}
+footer{
+    text-align:center;
+}
+
+.last{
+    text-align:center;
+}
+div.reg{
+    text-align: left;
+  }
+  
+.clear{
+    font-size: 30px;
+}
+.daimon{
+    font-size: 30px;
+    float: left;
+}
+
+.timer{
+    text-align: right;
+}
+
+.graph_size{
+    width: 100%;
+    height: 620px;
+}
+.clear-display{
+    margin-left: auto;
+}
+
+.py-terminal{
+    min-height: 10px;
+}
+
+.kekka{
+    float: right;
+}
+
+.last-ranking{
+    font-size: 40px;
+}

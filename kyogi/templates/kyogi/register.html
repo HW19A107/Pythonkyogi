@@ -1,0 +1,28 @@
+{% extends "kyogi/base.html" %}
+{% block content %}
+
+<h1>新規登録</h1>
+
+ {% if AccountCreate %}
+   <h1>登録が完了しました</h1>
+
+ {% else %}
+   <div class="reg">
+   <form enctype="multipart/form-data" method="post">
+   {% csrf_token %}
+   {{ account_form.as_p }}
+   <tr>
+        <td>
+
+        </td>
+        <td>
+            <input class="btn" type="submit" name="" value="登録">
+        </td>
+    </tr>
+   </form>
+
+   
+   </div>
+ {% endif %}
+
+{% endblock %}

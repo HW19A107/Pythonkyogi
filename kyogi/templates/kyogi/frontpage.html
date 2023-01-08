@@ -1,0 +1,14 @@
+{% extends "kyogi/base.html" %}
+{% block content %}
+
+<h1>Python競技プログラミングサイト</h1>
+    <p class="message-1">
+        ようこそ！
+        <br>Python競技プログラミングを始めましょう。
+    </p>
+        <div class="userin">
+            <a href="{% url 'Login' %}" class="btn">ログイン</a>
+            <a href="{% url 'register' %}" class="btn">新規登録</a>
+        </div>
+
+{% endblock %}
