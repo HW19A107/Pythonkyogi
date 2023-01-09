@@ -26,6 +26,10 @@ def frontpage(request):
 def inquirypage(request):
     return render(request, "kyogi/inquiry.html")
 
+def expage(request):
+    params = {"UserID":request.user,}
+    return render(request, "kyogi/question/ex.html",context=params)
+
 def Q1page(request):
     params = {"UserID":request.user,}
     return render(request, "kyogi/question/Q1.html",context=params)
