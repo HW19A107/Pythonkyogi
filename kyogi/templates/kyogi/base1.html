@@ -8,7 +8,9 @@
     <title>Python競技</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 
 <body>
@@ -37,10 +39,8 @@
     </header>
     <main>
         <div class = "main">
-            <div class="message">
             {% block content %}
             {% endblock %}
-            </div>
         </div>
     </main>
     <footer>
