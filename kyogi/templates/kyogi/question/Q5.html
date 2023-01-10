@@ -16,7 +16,8 @@ def digits_sum():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-        <p>第一の門</p>
+    <p style="float: left;">第一の門</p>
+    <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if digits_sum() == digits_sum_ans:
     print('clear!!')
@@ -28,13 +29,13 @@ else:
 
     <form name = "clear" method="post" target="iframe" action="check">
         {% csrf_token %}
-        <input type="submit" id="btn" name="syukei" class="btn" py-Click="check()" value="提出">
+        <input type="submit" id="btn" name="syukei" class="btn" py-Click="check()" value="提出" style="float: left;">
         <input type="hidden" name="name" value={{ UserID }}>
         <input type="hidden" name="number" value="5">{% comment %} 問題番号 {% endcomment %}
         <textarea id="clear" name="clear" style="display:none"></textarea>
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
-
     </form>
+    <p style="text-align: right;">カーソルをこちら↑に</p>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>
