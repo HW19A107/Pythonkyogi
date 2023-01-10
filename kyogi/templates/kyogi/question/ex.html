@@ -4,8 +4,14 @@
 <div class = "mondai">
     <h1 class="daimon">EX 数学 累乗問題</h1>
     <p class = "timer" id="timer"></p>
-    <br>999の2乗はいくらか
-   <br>出力:数字のみをreturnせよ
+    <br>
+    <div class = "Q">
+        <font color="black">問題:</font>
+        999の2乗はいくらか
+        <br>
+        <font color="black">出力:</font>
+        数字のみをreturnせよ
+    </div>
    <br>
    <a href="ex" class="btn reset-btn">リセット</a>
    <a href="/" class="btn">トップへ</a>
@@ -15,7 +21,7 @@ def number_of_digits999():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-    <p style="float: left;">第一の門</p>
+    <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if number_of_digits999() == number_of_digits999ans:             
@@ -35,6 +41,7 @@ else:
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
     </form>
     <p style="text-align: right;">カーソルをこちら↑に</p>
+    <br>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>
@@ -51,7 +58,7 @@ number_of_digits999ans = 998001
 
 def check():
     if number_of_digits999() == number_of_digits999ans:
-        Element("check_answer").write("All clear!!  次の問題に進みましょう")
+        Element("check_answer").write("All clear!!  競技プログラミングを始めましょう!")
         global clear
         clear = 1
     else:

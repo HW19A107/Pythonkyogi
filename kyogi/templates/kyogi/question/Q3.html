@@ -4,8 +4,14 @@
 <div class = "mondai">
     <h1 class="daimon">問題3 数学 桁数問題</h1>
     <p class = "timer" id="timer"></p>
-    <br>9の900乗を計算し、その計算結果に9の数がいくつ含まれるかを求めよ。
-   <br>出力:9の数のみをreturnせよ
+    <br>
+    <div class = "Q">
+        <font color="black">問題:</font>
+        9の900乗を計算し、その計算結果に9の数がいくつ含まれるかを求めよ
+        <br>
+        <font color="black">出力:</font>
+        9の数がいくつあるか数字のみをreturnせよ
+    </div>
    <br>
    <a href="Q3" class="btn reset-btn">リセット</a>
    <a href="sentaku" class="btn">問題一覧へ</a>
@@ -15,7 +21,7 @@ def number_of_digits9():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-    <p style="float: left;">第一の門</p>
+    <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if number_of_digits9() == number_of_digits9_ans:
@@ -35,6 +41,7 @@ else:
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
     </form>
     <p style="text-align: right;">カーソルをこちら↑に</p>
+    <br>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>

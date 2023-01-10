@@ -4,9 +4,15 @@
 <div class = "mondai">
     <h1 class="daimon">問題4 数学 連続する数字</h1>
     <p class = "timer" id="timer"></p>
-    <br>5桁の正の整数の中に、同じ数字が3つ連続する数はいくつあるか。
-    <br>たとえば、11222や39996が該当する数である。
-   <br>出力:3つ連続する数はいくつあるか、数字のみをreturnせよ
+    <br>
+    <div class = "Q">
+        <font color="black">問題:</font>
+        5桁の正の整数の中に、同じ数字が3つ連続する数はいくつあるか
+        <br>例→11222や39996が該当する数である
+        <br>
+        <font color="black">出力:</font>
+        3つ連続する数はいくつあるか、数字のみをreturnせよ
+    </div>
    <br>
    <a href="Q4" class="btn reset-btn">リセット</a>
    <a href="sentaku" class="btn">問題一覧へ</a>
@@ -16,7 +22,7 @@ def continue_number():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-    <p style="float: left;">第一の門</p>
+    <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if continue_number() == continue_ans:
@@ -36,6 +42,7 @@ else:
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
     </form>
     <p style="text-align: right;">カーソルをこちら↑に</p>
+    <br>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>

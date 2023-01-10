@@ -28,7 +28,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 
 	#各問題のクリア数
 	ax[0,1].set_title('Clear_Question')
-	ax[0,1].set_xlabel('Qnumber')
+	ax[0,1].set_xlabel('Question_Number')
 	ax[0,1].set_xticks(np.arange(1, 6, 1))
 	ax[0,1].set_ylabel('Correct')
 	ax[0,1].set_yticks(np.arange(1, 50, 1))
@@ -37,45 +37,45 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	#Q1のクリア数
 	for xval, yval in zip(c[0:5],d):
 		ax[1,0].text(xval, yval, yval, ha='center', va='bottom')
-	ax[1,0].set_title('Question1_time')
+	ax[1,0].set_title('Question1_Cleartime_Ranking')
 	ax[1,0].set_xlabel('Name')
-	ax[1,0].set_ylabel('Time(sec)')
+	ax[1,0].set_ylabel('ClearTime(sec)')
 	ax[1,0].set_yticks(np.arange(0, 500, 50))
 	ax[1,0].bar(c[0:5], d[0:5])
 
 	#Q2のクリア数
 	for xval, yval in zip(e[0:5],f):
 		ax[1,1].text(xval, yval, yval, ha='center', va='bottom')
-	ax[1,1].set_title('Question2_time')
+	ax[1,1].set_title('Question2_Cleartime_Ranking')
 	ax[1,1].set_xlabel('Name')
-	ax[1,1].set_ylabel('Time(sec)')
+	ax[1,1].set_ylabel('ClearTime(sec)')
 	ax[1,1].set_yticks(np.arange(0, 500, 50))
 	ax[1,1].bar(e[0:5], f[0:5])
 
 	#Q3のクリア数
 	for xval, yval in zip(g[0:5],h):
 		ax[2,0].text(xval, yval, yval, ha='center', va='bottom')
-	ax[2,0].set_title('Question3_time')
+	ax[2,0].set_title('Question3_Cleartime_Ranking')
 	ax[2,0].set_xlabel('Name')
-	ax[2,0].set_ylabel('Time(sec)')
+	ax[2,0].set_ylabel('ClearTime(sec)')
 	ax[2,0].set_yticks(np.arange(0, 500, 50))
 	ax[2,0].bar(g[0:5], h[0:5])
 
 	#Q4のクリア数
 	for xval, yval in zip(l[0:5],m):
 		ax[2,1].text(xval, yval, yval, ha='center', va='bottom')
-	ax[2,1].set_title('Question4_time')
+	ax[2,1].set_title('Question4_Cleartime_Ranking')
 	ax[2,1].set_xlabel('Name')
-	ax[2,1].set_ylabel('Time(sec)')
+	ax[2,1].set_ylabel('ClearTime(sec)')
 	ax[2,1].set_yticks(np.arange(0, 500, 50))
 	ax[2,1].bar(l[0:5], m[0:5])
 
 	#Q5のクリア数
 	for xval, yval in zip(n[0:5],o):
 		ax[3,0].text(xval, yval, yval, ha='center', va='bottom')
-	ax[3,0].set_title('Question5_time')
+	ax[3,0].set_title('Question5_Cleartime_Ranking')
 	ax[3,0].set_xlabel('Name')
-	ax[3,0].set_ylabel('Time(sec)')
+	ax[3,0].set_ylabel('ClearTime(sec)')
 	ax[3,0].set_yticks(np.arange(0, 500, 50))
 	ax[3,0].bar(n[0:5], o[0:5])
 

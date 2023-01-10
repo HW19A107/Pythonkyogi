@@ -4,9 +4,15 @@
 <div class = "mondai">
     <h1 class="daimon">問題5 数学 和の計算</h1>
     <p class = "timer" id="timer"></p>
-    <br>5桁の正の整数の各桁の数字の和を計算し、その和がちょうど10に
-    <br>なる数はいくつあるか。たとえば、13222や80002が該当する数である。
-   <br>出力:10になる数はいくつあるか、数字のみをreturnせよ
+    <br>
+    <div class = "Q">
+        <font color="black">問題:</font>
+        5桁の正の整数の各桁の数字の和を計算し、その和がちょうど10になる数はいくつあるか
+        <br>例→13222や80002が該当する数である
+        <br>
+        <font color="black">出力:</font>
+        10になる数はいくつあるか、数字のみをreturnせよ
+    </div>
    <br>
    <a href="Q5" class="btn reset-btn">リセット</a>
    <a href="sentaku" class="btn">問題一覧へ</a>
@@ -16,7 +22,7 @@ def digits_sum():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-    <p style="float: left;">第一の門</p>
+    <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if digits_sum() == digits_sum_ans:
@@ -36,6 +42,7 @@ else:
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
     </form>
     <p style="text-align: right;">カーソルをこちら↑に</p>
+    <br>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>

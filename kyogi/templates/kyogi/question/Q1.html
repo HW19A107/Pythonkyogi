@@ -4,8 +4,14 @@
 <div class = "mondai">
     <h1 class="daimon">問題1 数学 倍数問題</h1>
     <p class = "timer" id="timer"></p>
-    <br>6桁の正の整数のうち、91の倍数はいくつあるか。
-   <br>出力:倍数がいくつあるか、数字のみをreturnせよ
+    <br>
+    <div class = "Q">
+        <font color="black">問題:</font>
+        6桁の正の整数のうち、91の倍数はいくつあるか。
+        <br>
+        <font color="black">出力:</font>
+        倍数がいくつあるか、数字のみをreturnせよ
+    </div>
    <br>
    <a href="Q1" class="btn reset-btn">リセット</a>
    <a href="sentaku" class="btn">問題一覧へ</a>
@@ -15,7 +21,7 @@ def multiple91():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-        <p style="float: left;">第一の門</p>
+        <p style="float: left;">正誤判定</p>
         <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if multiple91() == multiple91_ans:             
@@ -35,6 +41,7 @@ else:
         <textarea id="clear_time" name="clear_time" style="display:none"></textarea>
     </form>
     <p style="text-align: right;">カーソルをこちら↑に</p>
+    <br>
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>
