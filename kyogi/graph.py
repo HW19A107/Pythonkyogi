@@ -35,7 +35,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	ax[0,1].bar(a, b)
 
 	#Q1のクリア数
-	for xval, yval in zip(c,d):
+	for xval, yval in zip(c[0:5],d):
 		ax[0,2].text(xval, yval, yval, ha='center', va='bottom')
 	ax[0,2].set_title('Question1_time')
 	ax[0,2].set_xlabel('Name')
@@ -44,7 +44,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	ax[0,2].bar(c[0:5], d[0:5])
 
 	#Q2のクリア数
-	for xval, yval in zip(e,f):
+	for xval, yval in zip(e[0:5],f):
 		ax[0,3].text(xval, yval, yval, ha='center', va='bottom')
 	ax[0,3].set_title('Question2_time')
 	ax[0,3].set_xlabel('Name')
@@ -53,7 +53,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	ax[0,3].bar(e[0:5], f[0:5])
 
 	#Q3のクリア数
-	for xval, yval in zip(g,h):
+	for xval, yval in zip(g[0:5],h):
 		ax[1,0].text(xval, yval, yval, ha='center', va='bottom')
 	ax[1,0].set_title('Question3_time')
 	ax[1,0].set_xlabel('Name')
@@ -62,7 +62,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	ax[1,0].bar(g[0:5], h[0:5])
 
 	#Q4のクリア数
-	for xval, yval in zip(l,m):
+	for xval, yval in zip(l[0:5],m):
 		ax[1,1].text(xval, yval, yval, ha='center', va='bottom')
 	ax[1,1].set_title('Question4_time')
 	ax[1,1].set_xlabel('Name')
@@ -71,7 +71,7 @@ def Plot_Graph_ranking(x,y,a,b,c,d,e,f,g,h,l,m,n,o):
 	ax[1,1].bar(l[0:5], m[0:5])
 
 	#Q5のクリア数
-	for xval, yval in zip(n,o):
+	for xval, yval in zip(n[0:5],o):
 		ax[1,2].text(xval, yval, yval, ha='center', va='bottom')
 	ax[1,2].set_title('Question5_time')
 	ax[1,2].set_xlabel('Name')
