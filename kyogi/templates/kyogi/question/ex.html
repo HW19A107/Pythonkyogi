@@ -57,6 +57,7 @@ clear = 0
 number_of_digits999ans = 998001
 
 def check():
+    number_of_digits999ans = 998001
     if number_of_digits999() == number_of_digits999ans:
         Element("check_answer").write("All clear!!  競技プログラミングを始めましょう!")
         global clear
@@ -92,6 +93,7 @@ async def main():
 
 def check_clear():
     try:
+        number_of_digits999ans = 998001
         number_of_digits999() == number_of_digits999ans
         clear = 1
         Element("clear").write(value = clear)
