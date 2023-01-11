@@ -13,8 +13,22 @@
         桁数のみをreturnせよ
     </div>
    <br>
-   <a href="Q2" class="btn reset-btn">リセット</a>
-   <a href="sentaku" class="btn">問題一覧へ</a>
+   <form method="post" action="reset" class = "reset">
+    {% csrf_token %}
+    <input type="submit" id="btn" name="syukei" class="btn reset-btn" value="リセット">
+    <input type="hidden" name="name" value={{ UserID }}>
+    <input type="hidden" name="number" value="2">
+    <input type="hidden" name="itiran" value="1">
+    <textarea id="save_time" name="clear_time" style="display:none"></textarea>
+</form>
+<form method="post" action="reset" class = "reset">
+    {% csrf_token %}
+    <input type="submit" id="btn" name="syukei" class="btn reset-btn" value="問題一覧へ">
+    <input type="hidden" name="name" value={{ UserID }}>
+    <input type="hidden" name="number" value="2">
+    <input type="hidden" name="itiran" value="0">
+    <textarea id="itiran_time" name="clear_time" style="display:none"></textarea>
+</form>
 
     <py-repl>
 def number_of_digits():
@@ -31,7 +45,6 @@ else:
     </py-repl>
     <py-terminal auto="" class=""></py-terminal>
 
-
     <form name = "clear" method="post" target="iframe" action="check">
         {% csrf_token %}
         <input type="submit" id="btn" name="syukei" class="btn" py-Click="check()" value="提出" style="float: left;">
@@ -45,8 +58,7 @@ else:
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>
-
-    
+    <textarea id="mysave_time" style="display: none;">{{ my_save_time }}</textarea>
 </div>
 
 <py-script>
@@ -55,8 +67,10 @@ import asyncio
 
 clear = 0
 number_of_digits_ans = 859
+save_time = Element("mysave_time").element.value
 
 def check():
+    number_of_digits_ans = 859
     if number_of_digits() == number_of_digits_ans:
         Element("check_answer").write("All clear!!  次の問題に進みましょう")
         global clear
@@ -80,9 +94,11 @@ async def main():
         dt_now = datetime.datetime.now()
         time = dt_now - dt_was
         time1 = time.seconds
-        time = elapsed_time_str(time.seconds)
+        time = elapsed_time_str(time.seconds + int(save_time))
         Element("timer").write("経過時間:"+time)
-        Element("clear_time").write(value = time1)
+        Element("clear_time").write(time1 + int(save_time))
+        Element("save_time").write(time1 + int(save_time))
+        Element("itiran_time").write(time1 + int(save_time))
         check_clear()
         await asyncio.sleep(1)
         if clear == 1:
@@ -91,6 +107,7 @@ async def main():
 
 def check_clear():
     try:
+        number_of_digits_ans = 859
         assert number_of_digits() == number_of_digits_ans
         clear = 1
         Element("clear").write(value = clear)

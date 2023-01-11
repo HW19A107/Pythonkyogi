@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,HttpResponseRedirect,redirect
 from django.urls.base import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
@@ -14,7 +13,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 #-->
-from .models import total
+from .models import total,resets
 from django.utils import timezone
 
 from .graph import Plot_Graph_ranking
@@ -31,24 +30,64 @@ def expage(request):
     return render(request, "kyogi/question/ex.html",context=params)
 
 def Q1page(request):
-    params = {"UserID":request.user,}
-    return render(request, "kyogi/question/Q1.html",context=params)
-
+    try:
+        save_times = resets.objects.filter(name = request.user,number = '1')
+        save_time_len = len(save_times)
+        Q1_save_time = save_times[save_time_len-1].save_time
+        params = {"UserID":request.user,"my_save_time":Q1_save_time}
+        return render(request, "kyogi/question/Q1.html",context=params)
+    except:
+        Q1_save_time = "0"
+        params = {"UserID":request.user,"my_save_time":Q1_save_time}
+        return render(request, "kyogi/question/Q1.html",context=params)
+        
 def Q2page(request):
-    params = {"UserID":request.user,}
-    return render(request, "kyogi/question/Q2.html",context=params)
+    try:
+        save_times = resets.objects.filter(name = request.user,number = '2')
+        save_time_len = len(save_times)
+        Q2_save_time = save_times[save_time_len-1].save_time
+        params = {"UserID":request.user,"my_save_time":Q2_save_time}
+        return render(request, "kyogi/question/Q2.html",context=params)
+    except:
+        Q2_save_time = "0"
+        params = {"UserID":request.user,"my_save_time":Q2_save_time}
+        return render(request, "kyogi/question/Q2.html",context=params)
 
 def Q3page(request):
-    params = {"UserID":request.user,}
-    return render(request, "kyogi/question/Q3.html",context=params)
+    try:
+        save_times = resets.objects.filter(name = request.user,number = '3')
+        save_time_len = len(save_times)
+        Q3_save_time = save_times[save_time_len-1].save_time
+        params = {"UserID":request.user,"my_save_time":Q3_save_time}
+        return render(request, "kyogi/question/Q3.html",context=params)
+    except:
+        Q3_save_time = "0"
+        params = {"UserID":request.user,"my_save_time":Q3_save_time}
+        return render(request, "kyogi/question/Q3.html",context=params)
 
 def Q4page(request):
-    params = {"UserID":request.user,}
-    return render(request, "kyogi/question/Q4.html",context=params)
+    try:
+        save_times = resets.objects.filter(name = request.user,number = '4')
+        save_time_len = len(save_times)
+        Q4_save_time = save_times[save_time_len-1].save_time
+        params = {"UserID":request.user,"my_save_time":Q4_save_time}
+        return render(request, "kyogi/question/Q4.html",context=params)
+    except:
+        Q4_save_time = "0"
+        params = {"UserID":request.user,"my_save_time":Q4_save_time}
+        return render(request, "kyogi/question/Q4.html",context=params)
 
 def Q5page(request):
-    params = {"UserID":request.user,}
-    return render(request, "kyogi/question/Q5.html",context=params)
+    try:
+        save_times = resets.objects.filter(name = request.user,number = '5')
+        save_time_len = len(save_times)
+        Q5_save_time = save_times[save_time_len-1].save_time
+        params = {"UserID":request.user,"my_save_time":Q5_save_time}
+        return render(request, "kyogi/question/Q5.html",context=params)
+    except:
+        Q5_save_time = "0"
+        params = {"UserID":request.user,"my_save_time":Q5_save_time}
+        return render(request, "kyogi/question/Q5.html",context=params)
 
 def lastpage(request):
     params = {"UserID":request.user,}
@@ -147,6 +186,56 @@ def totals(request):
 
         response = None
         return HttpResponse('response')
+
+def reset(request):
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        number = request.POST.get('number')
+        save_time = request.POST.get('clear_time')
+        itiran = request.POST.get('itiran')
+
+        model = resets(name=name,number=number,save_time=save_time)
+        model.save()
+        
+        if itiran == "0":
+            return redirect(reverse(sentakupage))
+        else:  
+            if number == "1":
+                save_times = resets.objects.filter(name = request.user,number = '1')
+                save_time_len = len(save_times)
+                Q1_save_time = save_times[save_time_len-1].save_time
+                params = {"UserID":request.user,"my_save_time":Q1_save_time}
+                return render(request, "kyogi/question/Q1.html",context=params)
+
+            elif number == "2":
+                save_times = resets.objects.filter(name = request.user,number = '2')
+                save_time_len = len(save_times)
+                Q2_save_time = save_times[save_time_len-1].save_time
+                params = {"UserID":request.user,"my_save_time":Q2_save_time}
+                return render(request, "kyogi/question/Q2.html",context=params)
+
+            elif number == "3":
+                save_times = resets.objects.filter(name = request.user,number = '3')
+                save_time_len = len(save_times)
+                Q3_save_time = save_times[save_time_len-1].save_time
+                params = {"UserID":request.user,"my_save_time":Q3_save_time}
+                return render(request, "kyogi/question/Q3.html",context=params)
+
+            elif number == "4":
+                save_times = resets.objects.filter(name = request.user,number = '4')
+                save_time_len = len(save_times)
+                Q4_save_time = save_times[save_time_len-1].save_time
+                params = {"UserID":request.user,"my_save_time":Q4_save_time}
+                return render(request, "kyogi/question/Q4.html",context=params)
+                
+            elif number == "5":
+                save_times = resets.objects.filter(name = request.user,number = '5')
+                save_time_len = len(save_times)
+                Q5_save_time = save_times[save_time_len-1].save_time
+                params = {"UserID":request.user,"my_save_time":Q5_save_time}
+                return render(request, "kyogi/question/Q5.html",context=params)
+            
 #グラフ
 class graph(TemplateView):
 

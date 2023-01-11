@@ -14,16 +14,30 @@
         10になる数はいくつあるか、数字のみをreturnせよ
     </div>
    <br>
-   <a href="Q5" class="btn reset-btn">リセット</a>
-   <a href="sentaku" class="btn">問題一覧へ</a>
+   <form method="post" action="reset" class = "reset">
+        {% csrf_token %}
+        <input type="submit" id="btn" name="syukei" class="btn reset-btn" value="リセット">
+        <input type="hidden" name="name" value={{ UserID }}>
+        <input type="hidden" name="number" value="5">
+        <input type="hidden" name="itiran" value="1">
+        <textarea id="save_time" name="clear_time" style="display:none"></textarea>
+    </form>
+    <form method="post" action="reset" class = "reset">
+        {% csrf_token %}
+        <input type="submit" id="btn" name="syukei" class="btn reset-btn" value="問題一覧へ">
+        <input type="hidden" name="name" value={{ UserID }}>
+        <input type="hidden" name="number" value="5">
+        <input type="hidden" name="itiran" value="0">
+        <textarea id="itiran_time" name="clear_time" style="display:none"></textarea>
+    </form>
 
     <py-repl>
 def digits_sum():
     # ここにコードを記述し右下の実行を押してください
     return None
     </py-repl>
-    <p style="float: left;">正誤判定</p>
-    <p style="text-align: right;">カーソルをこちら↑に</p>
+        <p style="float: left;">正誤判定</p>
+        <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
 if digits_sum() == digits_sum_ans:
     print('clear!!')
@@ -31,7 +45,6 @@ else:
     print('答えが違います')
     </py-repl>
     <py-terminal auto="" class=""></py-terminal>
-
 
     <form name = "clear" method="post" target="iframe" action="check">
         {% csrf_token %}
@@ -46,8 +59,7 @@ else:
     <label id="check_answer" class="clear"></label>
 
     <iframe id="iframe" name="iframe" style="display: none;"></iframe>
-
-    
+    <textarea id="mysave_time" style="display: none;">{{ my_save_time }}</textarea>
 </div>
 
 <py-script>
@@ -56,8 +68,10 @@ import asyncio
 
 clear = 0
 digits_sum_ans = 714
+save_time = Element("mysave_time").element.value
 
 def check():
+    digits_sum_ans = 714
     if digits_sum() == digits_sum_ans:
         Element("check_answer").write("All clear!!  次の問題に進みましょう")
         global clear
@@ -81,9 +95,11 @@ async def main():
         dt_now = datetime.datetime.now()
         time = dt_now - dt_was
         time1 = time.seconds
-        time = elapsed_time_str(time.seconds)
+        time = elapsed_time_str(time.seconds + int(save_time))
         Element("timer").write("経過時間:"+time)
-        Element("clear_time").write(value = time1)
+        Element("clear_time").write(time1 + int(save_time))
+        Element("save_time").write(time1 + int(save_time))
+        Element("itiran_time").write(time1 + int(save_time))
         check_clear()
         await asyncio.sleep(1)
         if clear == 1:
@@ -92,6 +108,7 @@ async def main():
 
 def check_clear():
     try:
+        digits_sum_ans = 714
         assert digits_sum() == digits_sum_ans 
         clear = 1
         Element("clear").write(value = clear)

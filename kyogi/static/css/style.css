@@ -169,3 +169,7 @@ div.reg{
     font-size: 25px;
     color: red;
 }
+
+.reset{
+   display: contents;
+}
