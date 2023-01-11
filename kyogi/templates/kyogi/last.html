@@ -7,6 +7,13 @@
         <br>あなたの順位は<font color="red">{{ myranking }}</font>です。
         <br>クリアした数は5問中<font color="red">{{ myclear }}問</font>です。
     </div>
+        アンケートへのご協力お願いします↓↓↓
+        <br>良かった点、悪かった点、不具合等思いつくことがあればなんでも記述してください。<br>
+        <form method="post" action="ank">
+            {% csrf_token %}
+            <br><textarea name="ankarea"></textarea>
+            <input type="submit" id="btn" name="syukei" class="btn reset-btn" value="アンケート送信">
+        </form>
 </div>
 
 {% endblock %}

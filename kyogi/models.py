@@ -30,3 +30,7 @@ class resets(models.Model):
     name = models.CharField(max_length=255,null=True)
     number = models.IntegerField(null=True)
     save_time = models.CharField(max_length=255,null=True)
+
+
+class anker(models.Model):
+    anktext = models.CharField(max_length=255,null=False)

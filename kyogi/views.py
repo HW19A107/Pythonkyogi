@@ -13,7 +13,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 #-->
-from .models import total,resets
+from .models import total,resets,anker
 from django.utils import timezone
 
 from .graph import Plot_Graph_ranking
@@ -187,6 +187,16 @@ def totals(request):
         response = None
         return HttpResponse('response')
 
+def ankr(request):
+    if request.method == 'POST':
+
+        ank = request.POST.get('ankarea')
+
+        model = anker(anktext=ank)
+        model.save()
+
+        return HttpResponse('ご協力ありがとうございました。')
+
 def reset(request):
     if request.method == 'POST':
 
@@ -228,7 +238,7 @@ def reset(request):
                 Q4_save_time = save_times[save_time_len-1].save_time
                 params = {"UserID":request.user,"my_save_time":Q4_save_time}
                 return render(request, "kyogi/question/Q4.html",context=params)
-                
+
             elif number == "5":
                 save_times = resets.objects.filter(name = request.user,number = '5')
                 save_time_len = len(save_times)
