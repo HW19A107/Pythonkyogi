@@ -173,3 +173,9 @@ div.reg{
 .reset{
    display: contents;
 }
+
+textarea {
+    resize: none;
+    width:300px;
+    height:200px;
+  }
