@@ -358,7 +358,7 @@ def sentakupage(request):
     clear_number = [" "," "," "," "," "," "," "," "," "," "]
     qs_clear_number = total.objects.filter(name = request.user,clear = '1')
     for i in range(len(qs_clear_number)):
-        clear_number[qs_clear_number[i].number -1] = "claer"
+        clear_number[qs_clear_number[i].number -1] = "clear"
     
     qs_clear = total.objects.filter(clear = '1')
     x = []
