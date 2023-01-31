@@ -38,7 +38,7 @@ def number_of_digits9():
     <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
-if number_of_digits9() == number_of_digits9_ans:
+if digits9():
     print('clear!!')
 else:
     print('答えが違います')
@@ -115,7 +115,11 @@ def check_clear():
         clear = 0
         Element("clear").write(value = clear)
         
-
+def digits9():
+    if number_of_digits9() == number_of_digits9_ans:
+        return True
+    else:
+        return False
 
 pyscript.run_until_complete(main())  
 

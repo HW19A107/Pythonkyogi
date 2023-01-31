@@ -199,12 +199,12 @@ def ankr(request):
 
 def reset(request):
     if request.method == 'POST':
-
+        #formで送られてきた内容をinputタグのnameをもとに取得し変数に代入
         name = request.POST.get('name')
         number = request.POST.get('number')
         save_time = request.POST.get('clear_time')
         itiran = request.POST.get('itiran')
-
+        #データベースresetsに登録
         model = resets(name=name,number=number,save_time=save_time)
         model.save()
         
@@ -254,11 +254,12 @@ class graph(TemplateView):
     #変数としてグラフイメージをテンプレートに渡す
     def get_context_data(self, **kwargs):
         #グラフオブジェクト
-        qs_clear = total.objects.filter(clear = '1')
+        qs_clear = total.objects.filter(clear = '1') #クリアが1のデータ(1はクリアしている場合データベースに登録される)を取得
         x = []
         y = []
-        a = [1,2,3,4,5]
+        a = [1,2,3,4,5]#問題番号
         b = [0,0,0,0,0]
+        #ランキング
         for i in range(len(qs_clear)):
             if qs_clear[i].name not in x:
                 x.append(qs_clear[i].name)
@@ -266,7 +267,7 @@ class graph(TemplateView):
             else : 
                 index = x.index(qs_clear[i].name)
                 y[index] += 1
-
+        #各問題の正解数
         for j in range(len(qs_clear)):
             b[qs_clear[j].number - 1] +=1
         
@@ -275,7 +276,7 @@ class graph(TemplateView):
         x = list(sort_dict.keys())
         y = list(sort_dict.values())
         
-        #Q1clear_time
+        #Q1clear_timeランキング
         qs_time1 = total.objects.filter(clear = '1',number = '1')
         c = []
         d = []

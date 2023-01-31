@@ -39,7 +39,7 @@ def continue_number():
     <p style="float: left;">正誤判定</p>
     <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
-if continue_number() == continue_ans:
+if continue3():
     print('clear!!')
 else:
     print('答えが違います')
@@ -116,7 +116,11 @@ def check_clear():
         clear = 0
         Element("clear").write(value = clear)
         
-
+def continue3():
+    if continue_number() == continue_ans:
+        return True
+    else:
+        return False
 
 pyscript.run_until_complete(main())  
 

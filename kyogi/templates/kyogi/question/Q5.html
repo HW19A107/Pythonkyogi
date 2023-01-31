@@ -39,7 +39,7 @@ def digits_sum():
         <p style="float: left;">正誤判定</p>
         <p style="text-align: right;">カーソルをこちら↑に</p>
     <py-repl>
-if digits_sum() == digits_sum_ans:
+if digits_sum10():
     print('clear!!')
 else:
     print('答えが違います')
@@ -115,7 +115,13 @@ def check_clear():
     except:
         clear = 0
         Element("clear").write(value = clear)
-    
+   
+def digits_sum10():
+    if digits_sum() == digits_sum_ans:
+        return True
+    else:
+        return False        
+
 pyscript.run_until_complete(main())  
 
 </py-script>
